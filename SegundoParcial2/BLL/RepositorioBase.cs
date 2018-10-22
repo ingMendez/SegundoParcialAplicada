@@ -16,7 +16,7 @@ namespace SegundoParcial2.BLL
             _contexto = contexto;
         }
 
-        public virtual T Buscar(int id)
+        public  virtual T Buscar(int id)
         {
             T entity;
             try
@@ -33,7 +33,7 @@ namespace SegundoParcial2.BLL
 
         }
 
-        public virtual bool ELiminar(int id)
+        public  virtual bool ELiminar(int id)
         {
             bool paso = false;
 

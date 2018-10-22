@@ -28,7 +28,7 @@ namespace SegundoParcial2.UI.Registros
         {
             Limpiar();
         }
-        private void Gualdar_button_Click_1(object sender, EventArgs e)
+        private  void Gualdar_button_Click_1(object sender, EventArgs e)
         {
             
             repositorio = new RepositorioBase<Vendedor>(new Contexto());
