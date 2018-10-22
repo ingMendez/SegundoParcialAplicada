@@ -30,6 +30,7 @@ namespace SegundoParcial2.UI.Registros
         }
         private void Gualdar_button_Click_1(object sender, EventArgs e)
         {
+            
             repositorio = new RepositorioBase<Vendedor>(new Contexto());
             SuperErrorProvider.Clear();
             int id = (int)vendedorIdNumericUpDown.Value;
@@ -46,6 +47,7 @@ namespace SegundoParcial2.UI.Registros
                         Limpiar();
 
                     }
+                  
                 }
             }
             else
@@ -61,7 +63,7 @@ namespace SegundoParcial2.UI.Registros
 
 
             }
-            Nuevo_button.PerformClick();
+           
 
 
         }
@@ -75,11 +77,15 @@ namespace SegundoParcial2.UI.Registros
             {
                 SuperErrorProvider.SetError(vendedorIdNumericUpDown, "no se pudo eliminar una persona que no existen");
             }
+            if(vendedorIdNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("no se puede eliminar Un Vendedor que no Existe");
+                return;
+            }
             if (repositorio.ELiminar(id))
             {
                 Limpiar();
                 MessageBox.Show(" Eliminado");
-
 
             }
             else
@@ -185,5 +191,19 @@ namespace SegundoParcial2.UI.Registros
             return vendedor;
         }
 
+        private void rotacionNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            rotacionNumericUpDown.Value = (sueldoNumericUpDown.Value * retencionNumericUpDown.Value) / 100;
+        }
+
+        private void retencionNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            rotacionNumericUpDown.Value = (sueldoNumericUpDown.Value * retencionNumericUpDown.Value) / 100;
+        }
+
+        private void sueldoNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            rotacionNumericUpDown.Value = (sueldoNumericUpDown.Value * retencionNumericUpDown.Value) / 100;
+        }
     }
 }

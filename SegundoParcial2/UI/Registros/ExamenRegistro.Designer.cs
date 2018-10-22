@@ -34,6 +34,7 @@
             System.Windows.Forms.Label sueldoLabel;
             System.Windows.Forms.Label vendedorIdLabel;
             System.Windows.Forms.Label nombreLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExamenRegistro));
             this.label1 = new System.Windows.Forms.Label();
             this.Fecha_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.rotacionNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -58,6 +59,51 @@
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
+            // rotacionLabel1
+            // 
+            rotacionLabel1.AutoSize = true;
+            rotacionLabel1.Location = new System.Drawing.Point(6, 191);
+            rotacionLabel1.Name = "rotacionLabel1";
+            rotacionLabel1.Size = new System.Drawing.Size(48, 13);
+            rotacionLabel1.TabIndex = 29;
+            rotacionLabel1.Text = "rotacion:";
+            // 
+            // retencionLabel
+            // 
+            retencionLabel.AutoSize = true;
+            retencionLabel.Location = new System.Drawing.Point(7, 157);
+            retencionLabel.Name = "retencionLabel";
+            retencionLabel.Size = new System.Drawing.Size(54, 13);
+            retencionLabel.TabIndex = 28;
+            retencionLabel.Text = "retencion:";
+            // 
+            // sueldoLabel
+            // 
+            sueldoLabel.AutoSize = true;
+            sueldoLabel.Location = new System.Drawing.Point(7, 125);
+            sueldoLabel.Name = "sueldoLabel";
+            sueldoLabel.Size = new System.Drawing.Size(41, 13);
+            sueldoLabel.TabIndex = 26;
+            sueldoLabel.Text = "sueldo:";
+            // 
+            // vendedorIdLabel
+            // 
+            vendedorIdLabel.AutoSize = true;
+            vendedorIdLabel.Location = new System.Drawing.Point(7, 65);
+            vendedorIdLabel.Name = "vendedorIdLabel";
+            vendedorIdLabel.Size = new System.Drawing.Size(68, 13);
+            vendedorIdLabel.TabIndex = 24;
+            vendedorIdLabel.Text = "Vendedor Id:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(7, 95);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.TabIndex = 22;
+            nombreLabel.Text = "Nombre:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -75,15 +121,6 @@
             this.Fecha_dateTimePicker.Size = new System.Drawing.Size(95, 20);
             this.Fecha_dateTimePicker.TabIndex = 32;
             // 
-            // rotacionLabel1
-            // 
-            rotacionLabel1.AutoSize = true;
-            rotacionLabel1.Location = new System.Drawing.Point(6, 191);
-            rotacionLabel1.Name = "rotacionLabel1";
-            rotacionLabel1.Size = new System.Drawing.Size(48, 13);
-            rotacionLabel1.TabIndex = 29;
-            rotacionLabel1.Text = "rotacion:";
-            // 
             // rotacionNumericUpDown
             // 
             this.rotacionNumericUpDown.DecimalPlaces = 2;
@@ -97,15 +134,7 @@
             this.rotacionNumericUpDown.Name = "rotacionNumericUpDown";
             this.rotacionNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.rotacionNumericUpDown.TabIndex = 31;
-            // 
-            // retencionLabel
-            // 
-            retencionLabel.AutoSize = true;
-            retencionLabel.Location = new System.Drawing.Point(7, 157);
-            retencionLabel.Name = "retencionLabel";
-            retencionLabel.Size = new System.Drawing.Size(54, 13);
-            retencionLabel.TabIndex = 28;
-            retencionLabel.Text = "retencion:";
+            this.rotacionNumericUpDown.ValueChanged += new System.EventHandler(this.rotacionNumericUpDown_ValueChanged);
             // 
             // retencionNumericUpDown
             // 
@@ -114,15 +143,8 @@
             this.retencionNumericUpDown.Name = "retencionNumericUpDown";
             this.retencionNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.retencionNumericUpDown.TabIndex = 30;
-            // 
-            // sueldoLabel
-            // 
-            sueldoLabel.AutoSize = true;
-            sueldoLabel.Location = new System.Drawing.Point(7, 125);
-            sueldoLabel.Name = "sueldoLabel";
-            sueldoLabel.Size = new System.Drawing.Size(41, 13);
-            sueldoLabel.TabIndex = 26;
-            sueldoLabel.Text = "sueldo:";
+            this.retencionNumericUpDown.ValueChanged += new System.EventHandler(this.retencionNumericUpDown_ValueChanged);
+            this.retencionNumericUpDown.BackColorChanged += new System.EventHandler(this.rotacionNumericUpDown_ValueChanged);
             // 
             // sueldoNumericUpDown
             // 
@@ -136,15 +158,8 @@
             this.sueldoNumericUpDown.Name = "sueldoNumericUpDown";
             this.sueldoNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.sueldoNumericUpDown.TabIndex = 27;
-            // 
-            // vendedorIdLabel
-            // 
-            vendedorIdLabel.AutoSize = true;
-            vendedorIdLabel.Location = new System.Drawing.Point(7, 65);
-            vendedorIdLabel.Name = "vendedorIdLabel";
-            vendedorIdLabel.Size = new System.Drawing.Size(68, 13);
-            vendedorIdLabel.TabIndex = 24;
-            vendedorIdLabel.Text = "Vendedor Id:";
+            this.sueldoNumericUpDown.ValueChanged += new System.EventHandler(this.sueldoNumericUpDown_ValueChanged);
+            this.sueldoNumericUpDown.BindingContextChanged += new System.EventHandler(this.rotacionNumericUpDown_ValueChanged);
             // 
             // vendedorIdNumericUpDown
             // 
@@ -152,15 +167,6 @@
             this.vendedorIdNumericUpDown.Name = "vendedorIdNumericUpDown";
             this.vendedorIdNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.vendedorIdNumericUpDown.TabIndex = 25;
-            // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(7, 95);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(47, 13);
-            nombreLabel.TabIndex = 22;
-            nombreLabel.Text = "Nombre:";
             // 
             // nombreTextBox
             // 
@@ -171,20 +177,23 @@
             // 
             // Buscar_button
             // 
-            this.Buscar_button.Location = new System.Drawing.Point(292, 46);
+            this.Buscar_button.BackColor = System.Drawing.Color.Lime;
+            this.Buscar_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Buscar_button.BackgroundImage")));
+            this.Buscar_button.Location = new System.Drawing.Point(274, 68);
             this.Buscar_button.Name = "Buscar_button";
-            this.Buscar_button.Size = new System.Drawing.Size(75, 62);
+            this.Buscar_button.Size = new System.Drawing.Size(60, 66);
             this.Buscar_button.TabIndex = 21;
             this.Buscar_button.Text = "Buscar";
-            this.Buscar_button.UseVisualStyleBackColor = true;
+            this.Buscar_button.UseVisualStyleBackColor = false;
             this.Buscar_button.Click += new System.EventHandler(this.Buscar_button_Click_1);
             // 
             // Elimiinar_button
             // 
-            this.Elimiinar_button.BackColor = System.Drawing.Color.White;
-            this.Elimiinar_button.Location = new System.Drawing.Point(292, 254);
+            this.Elimiinar_button.BackColor = System.Drawing.Color.Lime;
+            this.Elimiinar_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Elimiinar_button.BackgroundImage")));
+            this.Elimiinar_button.Location = new System.Drawing.Point(247, 284);
             this.Elimiinar_button.Name = "Elimiinar_button";
-            this.Elimiinar_button.Size = new System.Drawing.Size(75, 59);
+            this.Elimiinar_button.Size = new System.Drawing.Size(56, 50);
             this.Elimiinar_button.TabIndex = 20;
             this.Elimiinar_button.Text = "Eliminar";
             this.Elimiinar_button.UseVisualStyleBackColor = false;
@@ -192,10 +201,11 @@
             // 
             // Gualdar_button
             // 
-            this.Gualdar_button.BackColor = System.Drawing.Color.White;
-            this.Gualdar_button.Location = new System.Drawing.Point(176, 254);
+            this.Gualdar_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Gualdar_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Gualdar_button.BackgroundImage")));
+            this.Gualdar_button.Location = new System.Drawing.Point(150, 284);
             this.Gualdar_button.Name = "Gualdar_button";
-            this.Gualdar_button.Size = new System.Drawing.Size(75, 59);
+            this.Gualdar_button.Size = new System.Drawing.Size(56, 50);
             this.Gualdar_button.TabIndex = 19;
             this.Gualdar_button.Text = "Guardar";
             this.Gualdar_button.UseVisualStyleBackColor = false;
@@ -203,10 +213,11 @@
             // 
             // Nuevo_button
             // 
-            this.Nuevo_button.BackColor = System.Drawing.Color.White;
-            this.Nuevo_button.Location = new System.Drawing.Point(48, 254);
+            this.Nuevo_button.BackColor = System.Drawing.Color.Lime;
+            this.Nuevo_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Nuevo_button.BackgroundImage")));
+            this.Nuevo_button.Location = new System.Drawing.Point(48, 284);
             this.Nuevo_button.Name = "Nuevo_button";
-            this.Nuevo_button.Size = new System.Drawing.Size(75, 59);
+            this.Nuevo_button.Size = new System.Drawing.Size(54, 50);
             this.Nuevo_button.TabIndex = 18;
             this.Nuevo_button.Text = "nuevo";
             this.Nuevo_button.UseVisualStyleBackColor = false;
