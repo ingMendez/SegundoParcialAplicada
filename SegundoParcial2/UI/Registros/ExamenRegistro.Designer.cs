@@ -47,6 +47,12 @@
             this.Gualdar_button = new System.Windows.Forms.Button();
             this.Nuevo_button = new System.Windows.Forms.Button();
             this.SuperErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DetalledataGridView = new System.Windows.Forms.DataGridView();
+            this.CuotacomboBox = new System.Windows.Forms.ComboBox();
+            this.Metas = new System.Windows.Forms.Label();
+            this.Add_Button = new System.Windows.Forms.Button();
+            this.Metabutton = new System.Windows.Forms.Button();
+            this.CuotaDiaria = new System.Windows.Forms.NumericUpDown();
             rotacionLabel1 = new System.Windows.Forms.Label();
             retencionLabel = new System.Windows.Forms.Label();
             sueldoLabel = new System.Windows.Forms.Label();
@@ -57,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sueldoNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendedorIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuotaDiaria)).BeginInit();
             this.SuspendLayout();
             // 
             // rotacionLabel1
@@ -107,7 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(214, 167);
+            this.label1.Location = new System.Drawing.Point(218, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 33;
@@ -116,7 +124,7 @@
             // Fecha_dateTimePicker
             // 
             this.Fecha_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Fecha_dateTimePicker.Location = new System.Drawing.Point(257, 161);
+            this.Fecha_dateTimePicker.Location = new System.Drawing.Point(256, 32);
             this.Fecha_dateTimePicker.Name = "Fecha_dateTimePicker";
             this.Fecha_dateTimePicker.Size = new System.Drawing.Size(95, 20);
             this.Fecha_dateTimePicker.TabIndex = 32;
@@ -172,14 +180,14 @@
             // 
             this.nombreTextBox.Location = new System.Drawing.Point(76, 92);
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nombreTextBox.Size = new System.Drawing.Size(120, 20);
             this.nombreTextBox.TabIndex = 23;
             // 
             // Buscar_button
             // 
             this.Buscar_button.BackColor = System.Drawing.Color.Lime;
             this.Buscar_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Buscar_button.BackgroundImage")));
-            this.Buscar_button.Location = new System.Drawing.Point(274, 68);
+            this.Buscar_button.Location = new System.Drawing.Point(256, 72);
             this.Buscar_button.Name = "Buscar_button";
             this.Buscar_button.Size = new System.Drawing.Size(60, 66);
             this.Buscar_button.TabIndex = 21;
@@ -191,7 +199,7 @@
             // 
             this.Elimiinar_button.BackColor = System.Drawing.Color.Lime;
             this.Elimiinar_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Elimiinar_button.BackgroundImage")));
-            this.Elimiinar_button.Location = new System.Drawing.Point(247, 284);
+            this.Elimiinar_button.Location = new System.Drawing.Point(272, 378);
             this.Elimiinar_button.Name = "Elimiinar_button";
             this.Elimiinar_button.Size = new System.Drawing.Size(56, 50);
             this.Elimiinar_button.TabIndex = 20;
@@ -203,7 +211,7 @@
             // 
             this.Gualdar_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Gualdar_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Gualdar_button.BackgroundImage")));
-            this.Gualdar_button.Location = new System.Drawing.Point(150, 284);
+            this.Gualdar_button.Location = new System.Drawing.Point(164, 378);
             this.Gualdar_button.Name = "Gualdar_button";
             this.Gualdar_button.Size = new System.Drawing.Size(56, 50);
             this.Gualdar_button.TabIndex = 19;
@@ -215,7 +223,7 @@
             // 
             this.Nuevo_button.BackColor = System.Drawing.Color.Lime;
             this.Nuevo_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Nuevo_button.BackgroundImage")));
-            this.Nuevo_button.Location = new System.Drawing.Point(48, 284);
+            this.Nuevo_button.Location = new System.Drawing.Point(76, 378);
             this.Nuevo_button.Name = "Nuevo_button";
             this.Nuevo_button.Size = new System.Drawing.Size(54, 50);
             this.Nuevo_button.TabIndex = 18;
@@ -227,12 +235,76 @@
             // 
             this.SuperErrorProvider.ContainerControl = this;
             // 
+            // DetalledataGridView
+            // 
+            this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DetalledataGridView.Location = new System.Drawing.Point(15, 244);
+            this.DetalledataGridView.Name = "DetalledataGridView";
+            this.DetalledataGridView.Size = new System.Drawing.Size(355, 135);
+            this.DetalledataGridView.TabIndex = 34;
+            // 
+            // CuotacomboBox
+            // 
+            this.CuotacomboBox.FormattingEnabled = true;
+            this.CuotacomboBox.Location = new System.Drawing.Point(76, 217);
+            this.CuotacomboBox.Name = "CuotacomboBox";
+            this.CuotacomboBox.Size = new System.Drawing.Size(105, 21);
+            this.CuotacomboBox.TabIndex = 35;
+            // 
+            // Metas
+            // 
+            this.Metas.AutoSize = true;
+            this.Metas.Location = new System.Drawing.Point(15, 218);
+            this.Metas.Name = "Metas";
+            this.Metas.Size = new System.Drawing.Size(36, 13);
+            this.Metas.TabIndex = 36;
+            this.Metas.Text = "Metas";
+            // 
+            // Add_Button
+            // 
+            this.Add_Button.Location = new System.Drawing.Point(322, 215);
+            this.Add_Button.Name = "Add_Button";
+            this.Add_Button.Size = new System.Drawing.Size(40, 23);
+            this.Add_Button.TabIndex = 38;
+            this.Add_Button.Text = "Add";
+            this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
+            // 
+            // Metabutton
+            // 
+            this.Metabutton.Location = new System.Drawing.Point(188, 214);
+            this.Metabutton.Name = "Metabutton";
+            this.Metabutton.Size = new System.Drawing.Size(32, 23);
+            this.Metabutton.TabIndex = 39;
+            this.Metabutton.Text = "+";
+            this.Metabutton.UseVisualStyleBackColor = true;
+            this.Metabutton.Click += new System.EventHandler(this.Metabutton_Click);
+            // 
+            // CuotaDiaria
+            // 
+            this.CuotaDiaria.DecimalPlaces = 2;
+            this.CuotaDiaria.Location = new System.Drawing.Point(226, 217);
+            this.CuotaDiaria.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.CuotaDiaria.Name = "CuotaDiaria";
+            this.CuotaDiaria.Size = new System.Drawing.Size(95, 20);
+            this.CuotaDiaria.TabIndex = 40;
+            // 
             // ExamenRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(382, 355);
+            this.ClientSize = new System.Drawing.Size(382, 431);
+            this.Controls.Add(this.CuotaDiaria);
+            this.Controls.Add(this.Metabutton);
+            this.Controls.Add(this.Add_Button);
+            this.Controls.Add(this.Metas);
+            this.Controls.Add(this.CuotacomboBox);
+            this.Controls.Add(this.DetalledataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Fecha_dateTimePicker);
             this.Controls.Add(rotacionLabel1);
@@ -251,11 +323,14 @@
             this.Controls.Add(this.Nuevo_button);
             this.Name = "ExamenRegistro";
             this.Text = "ExamenRegistro";
+            this.Load += new System.EventHandler(this.ExamenRegistro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rotacionNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.retencionNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sueldoNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendedorIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuperErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CuotaDiaria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +350,11 @@
         private System.Windows.Forms.Button Gualdar_button;
         private System.Windows.Forms.Button Nuevo_button;
         private System.Windows.Forms.ErrorProvider SuperErrorProvider;
+        private System.Windows.Forms.DataGridView DetalledataGridView;
+        private System.Windows.Forms.Label Metas;
+        private System.Windows.Forms.ComboBox CuotacomboBox;
+        private System.Windows.Forms.Button Add_Button;
+        private System.Windows.Forms.Button Metabutton;
+        private System.Windows.Forms.NumericUpDown CuotaDiaria;
     }
 }

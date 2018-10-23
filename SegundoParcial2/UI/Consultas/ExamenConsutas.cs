@@ -18,7 +18,8 @@ namespace SegundoParcial2.UI.Consultas
             public ExamenConsutas()
             {
                 InitializeComponent();
-            }
+            
+        }
 
             private void Label3_Click(object sender, EventArgs e)
             {

@@ -11,6 +11,8 @@ namespace SegundoParcial2.DAL
     {
         public DbSet<Vendedor> Vende { get; set; }
 
+        public DbSet<Meta> Metas { get; set; }
+
         public Contexto() : base("ConStr")
         {
 

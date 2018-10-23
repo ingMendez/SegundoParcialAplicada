@@ -12,12 +12,17 @@ using System.Windows.Forms;
 
 namespace SegundoParcial2.UI.Registros
 {
+    
     public partial class ExamenRegistro : Form
     {
+     
+        public List<DetalleVendedor> Detalle { get; set; }
         RepositorioBase<Vendedor> repositorio;
         public ExamenRegistro()
         {
             InitializeComponent();
+            this.Detalle = new List<DetalleVendedor>();
+            LlenaCombox();
         }
         /// <summary>
         /// Butones del programa 
@@ -27,6 +32,14 @@ namespace SegundoParcial2.UI.Registros
         private void Nuevo_button_Click_1(object sender, EventArgs e)
         {
             Limpiar();
+        }
+        private void LlenaCombox()
+        {
+            RepositorioBase<Meta> metarepositorio = new RepositorioBase<Meta>(new Contexto());
+            CuotacomboBox.DataSource = metarepositorio.GetList(c => true);
+            CuotacomboBox.ValueMember = "idMeta";
+            CuotacomboBox.DisplayMember = "descripcion";
+
         }
         private  void Gualdar_button_Click_1(object sender, EventArgs e)
         {
@@ -186,7 +199,7 @@ namespace SegundoParcial2.UI.Registros
             vendedor.Retencion = Convert.ToInt32(retencionNumericUpDown.Value);
             vendedor.Rotacion = Convert.ToInt32(rotacionNumericUpDown.Value);
             vendedor.Sueldo = Convert.ToInt32(sueldoNumericUpDown.Value);
-
+            vendedor.Metas = CuotacomboBox.Text;
 
             return vendedor;
         }
@@ -204,6 +217,41 @@ namespace SegundoParcial2.UI.Registros
         private void sueldoNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             rotacionNumericUpDown.Value = (sueldoNumericUpDown.Value * retencionNumericUpDown.Value) / 100;
+        }
+
+        private void Metabutton_Click(object sender, EventArgs e)
+        {
+            RMeta r = new RMeta();
+            r.ShowDialog();
+        }
+
+        private void ExamenRegistro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Add_Button_Click(object sender, EventArgs e)
+        {
+            
+            if (DetalledataGridView.DataSource != null)
+            {
+                this.Detalle = (List<DetalleVendedor>)DetalledataGridView.DataSource;
+            }
+            this.Detalle.Add(
+                new DetalleVendedor(
+                id: 0,
+                idmetas: (int)vendedorIdNumericUpDown.Value,
+                Idmeta: CuotacomboBox.SelectedIndex,
+                couta: Convert.ToDouble(CuotaDiaria.Value)
+                ));
+            SuperErrorProvider.Clear();
+            CargarGrid();
+        }
+        private void CargarGrid()
+        {
+            DetalledataGridView.DataSource = null;
+            DetalledataGridView.DataSource = this.Detalle;
+
         }
     }
 }
