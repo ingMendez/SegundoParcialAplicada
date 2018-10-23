@@ -1,4 +1,5 @@
-﻿using SegundoParcial2.UI.Registros;
+﻿using SegundoParcial2.UI.Consultas;
+using SegundoParcial2.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,7 +35,8 @@ namespace SegundoParcial2
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            ExamenConsutas ec = new ExamenConsutas();
+            ec.ShowDialog();
         }
     }
 }

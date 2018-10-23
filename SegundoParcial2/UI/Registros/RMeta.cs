@@ -26,7 +26,7 @@ namespace SegundoParcial2.UI.Registros
             errorProvider1.Clear();
             IdnumericUpDown.Value = 0;
             DescripciontextBox.Text = string.Empty;
-            CuotanumericUpDown.Value = 00;
+            CuotanumericUpDown.Value = 0;
         }
 
         private void button3_Click(object sender, EventArgs e)

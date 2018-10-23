@@ -53,6 +53,7 @@
             this.Add_Button = new System.Windows.Forms.Button();
             this.Metabutton = new System.Windows.Forms.Button();
             this.CuotaDiaria = new System.Windows.Forms.NumericUpDown();
+            this.removerbutton = new System.Windows.Forms.Button();
             rotacionLabel1 = new System.Windows.Forms.Label();
             retencionLabel = new System.Windows.Forms.Label();
             sueldoLabel = new System.Windows.Forms.Label();
@@ -211,7 +212,7 @@
             // 
             this.Gualdar_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Gualdar_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Gualdar_button.BackgroundImage")));
-            this.Gualdar_button.Location = new System.Drawing.Point(164, 378);
+            this.Gualdar_button.Location = new System.Drawing.Point(188, 378);
             this.Gualdar_button.Name = "Gualdar_button";
             this.Gualdar_button.Size = new System.Drawing.Size(56, 50);
             this.Gualdar_button.TabIndex = 19;
@@ -223,7 +224,7 @@
             // 
             this.Nuevo_button.BackColor = System.Drawing.Color.Lime;
             this.Nuevo_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Nuevo_button.BackgroundImage")));
-            this.Nuevo_button.Location = new System.Drawing.Point(76, 378);
+            this.Nuevo_button.Location = new System.Drawing.Point(98, 378);
             this.Nuevo_button.Name = "Nuevo_button";
             this.Nuevo_button.Size = new System.Drawing.Size(54, 50);
             this.Nuevo_button.TabIndex = 18;
@@ -238,7 +239,7 @@
             // DetalledataGridView
             // 
             this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetalledataGridView.Location = new System.Drawing.Point(15, 244);
+            this.DetalledataGridView.Location = new System.Drawing.Point(12, 237);
             this.DetalledataGridView.Name = "DetalledataGridView";
             this.DetalledataGridView.Size = new System.Drawing.Size(355, 135);
             this.DetalledataGridView.TabIndex = 34;
@@ -294,12 +295,23 @@
             this.CuotaDiaria.Size = new System.Drawing.Size(95, 20);
             this.CuotaDiaria.TabIndex = 40;
             // 
+            // removerbutton
+            // 
+            this.removerbutton.Location = new System.Drawing.Point(12, 369);
+            this.removerbutton.Name = "removerbutton";
+            this.removerbutton.Size = new System.Drawing.Size(75, 23);
+            this.removerbutton.TabIndex = 41;
+            this.removerbutton.Text = "Remove";
+            this.removerbutton.UseVisualStyleBackColor = true;
+            this.removerbutton.Click += new System.EventHandler(this.removerbutton_Click_1);
+            // 
             // ExamenRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(382, 431);
+            this.Controls.Add(this.removerbutton);
             this.Controls.Add(this.CuotaDiaria);
             this.Controls.Add(this.Metabutton);
             this.Controls.Add(this.Add_Button);
@@ -357,5 +369,6 @@
         private System.Windows.Forms.Button Add_Button;
         private System.Windows.Forms.Button Metabutton;
         private System.Windows.Forms.NumericUpDown CuotaDiaria;
+        private System.Windows.Forms.Button removerbutton;
     }
 }

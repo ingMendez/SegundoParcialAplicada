@@ -54,6 +54,7 @@ namespace SegundoParcial2.BLL
 
         public List<T> GetList(Expression<Func<T, bool>> expression)
         {
+            
             List<T> Lista = new List<T>();
             try
             {

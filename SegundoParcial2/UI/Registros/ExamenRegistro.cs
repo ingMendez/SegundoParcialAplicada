@@ -42,6 +42,14 @@ namespace SegundoParcial2.UI.Registros
             CuotacomboBox.DisplayMember = "descripcion";
 
         }
+        private void removerbutton_Click_1(object sender, EventArgs e)
+        {
+            if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
+            {
+                Detalle.RemoveAt(DetalledataGridView.CurrentRow.Index);
+                CargarGrid();
+            }
+        }
         private  void Gualdar_button_Click_1(object sender, EventArgs e)
         {
             
@@ -261,5 +269,7 @@ namespace SegundoParcial2.UI.Registros
         {
             LlenaCombox();
         }
+
+      
     }
 }

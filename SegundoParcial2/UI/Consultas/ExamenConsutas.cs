@@ -52,7 +52,7 @@ namespace SegundoParcial2.UI.Consultas
 
             }
 
-            private void CConsultar_button_Click(object sender, EventArgs e)
+            private void Consultar_button_Click(object sender, EventArgs e)
             {
 
 
@@ -98,5 +98,7 @@ namespace SegundoParcial2.UI.Consultas
             {
 
             }
-        }
+
+       
+    }
     }

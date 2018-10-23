@@ -53,6 +53,7 @@
             this.Consultar_button.TabIndex = 19;
             this.Consultar_button.Text = "Consultar";
             this.Consultar_button.UseVisualStyleBackColor = false;
+            this.Consultar_button.Click += new System.EventHandler(this.Consultar_button_Click);
             // 
             // Consulta_dataGridView
             // 
