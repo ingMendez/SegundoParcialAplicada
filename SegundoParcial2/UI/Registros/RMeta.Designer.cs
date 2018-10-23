@@ -72,7 +72,13 @@
             // 
             // CuotanumericUpDown
             // 
+            this.CuotanumericUpDown.DecimalPlaces = 2;
             this.CuotanumericUpDown.Location = new System.Drawing.Point(65, 92);
+            this.CuotanumericUpDown.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.CuotanumericUpDown.Name = "CuotanumericUpDown";
             this.CuotanumericUpDown.Size = new System.Drawing.Size(109, 20);
             this.CuotanumericUpDown.TabIndex = 2;

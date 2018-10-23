@@ -24,6 +24,7 @@ namespace SegundoParcial2.UI.Registros
             this.Detalle = new List<DetalleVendedor>();
             LlenaCombox();
         }
+
         /// <summary>
         /// Butones del programa 
         /// </summary>
@@ -184,7 +185,7 @@ namespace SegundoParcial2.UI.Registros
             Convert.ToInt32(retencionNumericUpDown.Value = vendedor.Retencion);
             Convert.ToInt32(sueldoNumericUpDown.Value = vendedor.Sueldo);
             Convert.ToInt32(rotacionNumericUpDown.Value = vendedor.Rotacion);
-
+            CuotaDiaria.Value = Convert.ToDecimal( vendedor.cuotasDiarias);
 
             return vendedor;
 
@@ -199,6 +200,7 @@ namespace SegundoParcial2.UI.Registros
             vendedor.Retencion = Convert.ToInt32(retencionNumericUpDown.Value);
             vendedor.Rotacion = Convert.ToInt32(rotacionNumericUpDown.Value);
             vendedor.Sueldo = Convert.ToInt32(sueldoNumericUpDown.Value);
+            vendedor.cuotasDiarias = Convert.ToDouble(CuotaDiaria.Value);
             vendedor.Metas = CuotacomboBox.Text;
 
             return vendedor;
@@ -223,6 +225,7 @@ namespace SegundoParcial2.UI.Registros
         {
             RMeta r = new RMeta();
             r.ShowDialog();
+            LlenaCombox();
         }
 
         private void ExamenRegistro_Load(object sender, EventArgs e)
@@ -252,6 +255,11 @@ namespace SegundoParcial2.UI.Registros
             DetalledataGridView.DataSource = null;
             DetalledataGridView.DataSource = this.Detalle;
 
+        }
+
+        private void CuotacomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LlenaCombox();
         }
     }
 }

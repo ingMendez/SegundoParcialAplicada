@@ -159,7 +159,7 @@
             this.sueldoNumericUpDown.DecimalPlaces = 2;
             this.sueldoNumericUpDown.Location = new System.Drawing.Point(76, 118);
             this.sueldoNumericUpDown.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
@@ -250,6 +250,7 @@
             this.CuotacomboBox.Name = "CuotacomboBox";
             this.CuotacomboBox.Size = new System.Drawing.Size(105, 21);
             this.CuotacomboBox.TabIndex = 35;
+            this.CuotacomboBox.SelectedIndexChanged += new System.EventHandler(this.CuotacomboBox_SelectedIndexChanged);
             // 
             // Metas
             // 
@@ -285,7 +286,7 @@
             this.CuotaDiaria.DecimalPlaces = 2;
             this.CuotaDiaria.Location = new System.Drawing.Point(226, 217);
             this.CuotaDiaria.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
