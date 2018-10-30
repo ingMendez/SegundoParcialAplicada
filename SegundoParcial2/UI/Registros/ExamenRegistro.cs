@@ -12,12 +12,11 @@ using System.Windows.Forms;
 
 namespace SegundoParcial2.UI.Registros
 {
-    
+
     public partial class ExamenRegistro : Form
     {
-     
+
         public List<DetalleVendedor> Detalle { get; set; }
-        RepositorioBase<Vendedor> repositorio;
         public ExamenRegistro()
         {
             InitializeComponent();
@@ -33,6 +32,10 @@ namespace SegundoParcial2.UI.Registros
         private void Nuevo_button_Click_1(object sender, EventArgs e)
         {
             Limpiar();
+        }
+        private void Calcular(Meta meta)
+        {
+
         }
         private void LlenaCombox()
         {
@@ -50,18 +53,26 @@ namespace SegundoParcial2.UI.Registros
                 CargarGrid();
             }
         }
-        private  void Gualdar_button_Click_1(object sender, EventArgs e)
+        private void Gualdar_button_Click_1(object sender, EventArgs e)
         {
-            
-            repositorio = new RepositorioBase<Vendedor>(new Contexto());
+
+            //  repositorio = new RepositorioBase<Vendedor>(new Contexto());
             SuperErrorProvider.Clear();
+            bool paso = false;
             int id = (int)vendedorIdNumericUpDown.Value;
-            Vendedor vendedor = repositorio.Buscar(id);
+            // Vendedor vendedor = repositorio.Buscar(id);
             Vendedor vendedor_guardar = LlenaClase();
 
-            if (vendedor == null)
+            if (!GuardarValidar())
+                return;
+
+            if (vendedorIdNumericUpDown.Value == 0)
             {
-                if (GuardarValidar()) ///sim la funcion validar = true entonces guardaame
+                paso = VendedorBLL.Guardar(vendedor_guardar);
+            }
+            else
+            {
+                /*if (GuardarValidar()) ///sim la funcion validar = true entonces guardaame
                 {
                     if (repositorio.Guardar(vendedor_guardar))
                     {
@@ -69,24 +80,27 @@ namespace SegundoParcial2.UI.Registros
                         Limpiar();
 
                     }
-                  
+
+
+                }*/
+                // else
+                if (!ExisteEnBaseDeDatos())
+                {
+                    MessageBox.Show("No Se Puedo Modificar un Vendedor Inexistente!!", "Fallo!!!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+                paso = VendedorBLL.Modificar(vendedor_guardar);
+            }
+            if (paso)
+            {
+                MessageBox.Show("Vendedor Guardado!!", "Exito!!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
             }
             else
             {
-                if (GuardarValidar())
-                {
-                    if (repositorio.Modificar(vendedor_guardar))
-                        MessageBox.Show(" Modificado");
-                    else
-                        MessageBox.Show(" no medificado");
-                }
-
-
+                MessageBox.Show("No Se Pudo Guardar!!", "Fallo!!!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-           
-
 
         }
         private void Elimiinar_button_Click_1(object sender, EventArgs e)
@@ -99,12 +113,12 @@ namespace SegundoParcial2.UI.Registros
             {
                 SuperErrorProvider.SetError(vendedorIdNumericUpDown, "no se pudo eliminar una persona que no existen");
             }
-            if(vendedorIdNumericUpDown.Value == 0)
+            if (vendedorIdNumericUpDown.Value == 0)
             {
                 MessageBox.Show("no se puede eliminar Un Vendedor que no Existe");
                 return;
             }
-            if (repositorio.ELiminar(id))
+            if (VendedorBLL.Eliminar(id))
             {
                 Limpiar();
                 MessageBox.Show(" Eliminado");
@@ -122,7 +136,7 @@ namespace SegundoParcial2.UI.Registros
             int id;
             Vendedor vendedor = new Vendedor();
             int.TryParse(vendedorIdNumericUpDown.Text, out id);
-            vendedor = repositorio.Buscar(id);
+            vendedor = VendedorBLL.Buscar(id);
             if (vendedor != null)
             {
                 MessageBox.Show(" encontrado");
@@ -181,8 +195,8 @@ namespace SegundoParcial2.UI.Registros
 
         private bool ExisteEnBaseDeDatos()
         {
-            repositorio = new RepositorioBase<Vendedor>(new Contexto());
-            Vendedor _vendedor = repositorio.Buscar((int)vendedorIdNumericUpDown.Value);
+            //repositorio = new RepositorioBase<Vendedor>(new Contexto());
+            Vendedor _vendedor = VendedorBLL.Buscar((int)vendedorIdNumericUpDown.Value);
             return (_vendedor != null);
         }
 
@@ -193,7 +207,7 @@ namespace SegundoParcial2.UI.Registros
             Convert.ToInt32(retencionNumericUpDown.Value = vendedor.Retencion);
             Convert.ToInt32(sueldoNumericUpDown.Value = vendedor.Sueldo);
             Convert.ToInt32(rotacionNumericUpDown.Value = vendedor.Rotacion);
-            CuotaDiaria.Value = Convert.ToDecimal( vendedor.cuotasDiarias);
+            CuotaDiaria.Value = Convert.ToDecimal(vendedor.cuotasDiarias);
 
             return vendedor;
 
@@ -243,7 +257,7 @@ namespace SegundoParcial2.UI.Registros
 
         private void Add_Button_Click(object sender, EventArgs e)
         {
-            
+
             if (DetalledataGridView.DataSource != null)
             {
                 this.Detalle = (List<DetalleVendedor>)DetalledataGridView.DataSource;
@@ -257,6 +271,22 @@ namespace SegundoParcial2.UI.Registros
                 ));
             SuperErrorProvider.Clear();
             CargarGrid();
+        }
+        public bool agregarmeta()
+        {
+            bool paso = true;
+            if(CuotaDiaria.Value == 0)
+            {
+                SuperErrorProvider.SetError(CuotaDiaria, "Debe Insertar Por lo menos una cuota");
+                CuotaDiaria.Focus();
+                paso = false;
+            }
+            if(CuotacomboBox.SelectedValue == null)
+            {
+                SuperErrorProvider.SetError(CuotacomboBox, "Debe Insertar Por lo menos una cuota");
+                paso = false;
+            }
+            return paso;
         }
         private void CargarGrid()
         {

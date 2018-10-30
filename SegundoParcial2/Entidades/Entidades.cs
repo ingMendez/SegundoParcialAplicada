@@ -23,6 +23,7 @@ namespace SegundoParcial2.Entidades
         public double cuotasDiarias { get; set; }
         public DateTime Fecha { get; set; }
         public string Metas { get; set; }
+
         public virtual List<DetalleVendedor> vendedor { get; set; }
         public Vendedor()
         {

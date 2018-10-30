@@ -54,6 +54,7 @@
             this.Metabutton = new System.Windows.Forms.Button();
             this.CuotaDiaria = new System.Windows.Forms.NumericUpDown();
             this.removerbutton = new System.Windows.Forms.Button();
+            this.totalesTextBox = new System.Windows.Forms.TextBox();
             rotacionLabel1 = new System.Windows.Forms.Label();
             retencionLabel = new System.Windows.Forms.Label();
             sueldoLabel = new System.Windows.Forms.Label();
@@ -305,12 +306,20 @@
             this.removerbutton.UseVisualStyleBackColor = true;
             this.removerbutton.Click += new System.EventHandler(this.removerbutton_Click_1);
             // 
+            // totalesTextBox
+            // 
+            this.totalesTextBox.Location = new System.Drawing.Point(239, 188);
+            this.totalesTextBox.Name = "totalesTextBox";
+            this.totalesTextBox.Size = new System.Drawing.Size(82, 20);
+            this.totalesTextBox.TabIndex = 42;
+            // 
             // ExamenRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(382, 431);
+            this.Controls.Add(this.totalesTextBox);
             this.Controls.Add(this.removerbutton);
             this.Controls.Add(this.CuotaDiaria);
             this.Controls.Add(this.Metabutton);
@@ -370,5 +379,6 @@
         private System.Windows.Forms.Button Metabutton;
         private System.Windows.Forms.NumericUpDown CuotaDiaria;
         private System.Windows.Forms.Button removerbutton;
+        private System.Windows.Forms.TextBox totalesTextBox;
     }
 }

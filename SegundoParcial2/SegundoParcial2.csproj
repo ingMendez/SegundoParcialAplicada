@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BLL\IRepository.cs" />
     <Compile Include="BLL\RepositorioBase.cs" />
+    <Compile Include="BLL\VendedorBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\DetalleVendedor.cs" />
     <Compile Include="Entidades\Entidades.cs" />
