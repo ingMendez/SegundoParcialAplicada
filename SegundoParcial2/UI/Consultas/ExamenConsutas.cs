@@ -79,7 +79,7 @@ namespace SegundoParcial2.UI.Consultas
                         break;
 
                 }
-                Consulta_dataGridView.DataSource = repositorio.GetList(filtro);
+                Consulta_dataGridView.DataSource = VendedorBLL.GetList(filtro);
             }
 
             private void DateTimePicker2_ValueChanged(object sender, EventArgs e)
